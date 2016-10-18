@@ -1,2 +1,2 @@
 # concordion-demo
-concordion的hello world 测试
+* 详细步骤:http://www.jianshu.com/p/f3975521a88b
