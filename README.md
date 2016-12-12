@@ -19,3 +19,4 @@
 书写 Concordion 测试时，将测试全部放在 specification 中，而 fixture 只是用来帮助构建测试用例的固件。
 
 > 测试文档可以用 `Markdown` 或者 `HTML` 语法写，这里选择 `Markdown`。
+
