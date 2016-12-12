@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'idea' 
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile "org.concordion:concordion:2.0.3"
+               
+}
+
