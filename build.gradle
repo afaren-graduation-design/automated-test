@@ -7,6 +7,5 @@ repositories {
 
 dependencies {
     testCompile "org.concordion:concordion:2.0.3"
-               
 }
 
