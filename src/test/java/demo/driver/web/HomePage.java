@@ -33,4 +33,9 @@ public class HomePage {
     public String getPageTitle() {
         return browser.getCurrentPageTitle();
     }
+
+    public LoginPage login() {
+        login.click();
+        return new LoginPage(browser);
+    }
 }

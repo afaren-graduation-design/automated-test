@@ -1,6 +1,7 @@
 package demo.twa.rs;
 
 import demo.driver.web.HomePage;
+import demo.driver.web.LoginPage;
 import org.concordion.api.AfterExample;
 import org.concordion.api.extension.Extension;
 import org.concordion.ext.ScreenshotExtension;
@@ -50,4 +51,7 @@ public class RecruitingSystem {
 
     }
 
+    public LoginPage login() {
+        return homePage.login();
+    }
 }
