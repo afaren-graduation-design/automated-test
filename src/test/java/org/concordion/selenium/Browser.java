@@ -1,7 +1,9 @@
 package org.concordion.selenium;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -29,5 +31,10 @@ public class Browser {
 
     public WebDriver getDriver() {
         return driver;
+    }
+
+
+    public String getCurrentPageTitle() {
+        return driver.getTitle();
     }
 }
