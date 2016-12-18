@@ -3,7 +3,6 @@ package demo.driver.web;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by afaren on 12/17/16.
  */
-public class LoginPage {
+public class LoginPage extends Page {
 
     @CacheLookup
     @FindBy(name = "email")
@@ -34,8 +33,6 @@ public class LoginPage {
     private WebElement submitButton;
 
 
-    private final WebDriver driver;
-
     private class TestLoginUser {
         String email;
         String loginPassword;
@@ -49,23 +46,19 @@ public class LoginPage {
     }
 
     public LoginPage(Browser browser) {
-        this.driver = browser.getDriver();
-        PageFactory.initElements(this.driver, this);
+        super(browser);
+        PageFactory.initElements(driver, this);
         waitForCaptcha();
     }
 
 
+    /*
+    wait for captcha load
+     */
     private void waitForCaptcha() {
-        WebDriverWait wait = new  WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("img"))); // TODO: 12/17/16  这里应该等待加载验证码图片，但是要用到 xPath
+        waitFor(By.tagName("img"));
     }
 
-
-
-    public  String getPageTitle(){
-        return driver.getTitle();
-
-    }
 
     public String fillForm() {
         TestLoginUser user = new TestLoginUser("test@163.com", "12345678", "1234");

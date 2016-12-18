@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by afaren on 12/17/16.
  */
-public class HomePage {
+public class HomePage extends Page{
     @CacheLookup
     @FindBy(linkText = "登录")
     private WebElement login;
@@ -20,18 +20,10 @@ public class HomePage {
     private WebElement register;
 
 
-    private Browser browser;
-    private WebDriver driver;
-
     public HomePage(Browser browser, String homePageUrl) {
-        this.browser = browser;
-        this.driver = browser.getDriver();
+        super(browser);
         PageFactory.initElements(driver, this);
         driver.get(homePageUrl);
-    }
-
-    public String getPageTitle() {
-        return browser.getCurrentPageTitle();
     }
 
     public LoginPage login() {
