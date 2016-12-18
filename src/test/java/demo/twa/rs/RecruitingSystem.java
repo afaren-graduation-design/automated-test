@@ -17,6 +17,7 @@ public class RecruitingSystem {
 
     private Browser browser;
     private HomePage homePage;
+    private LoginPage loginPage;
     private SeleniumScreenshotTaker screenshotTaker;
 
     @Extension
@@ -52,6 +53,15 @@ public class RecruitingSystem {
     }
 
     public LoginPage login() {
-        return homePage.login();
+
+        loginPage =  homePage.login();
+        return loginPage;
     }
+
+    public String fillForm() {
+        return loginPage.fillForm();
+    }
+
+
+
 }
