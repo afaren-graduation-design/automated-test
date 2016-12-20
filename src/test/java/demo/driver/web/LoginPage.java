@@ -1,9 +1,12 @@
 package demo.driver.web;
 
 import org.concordion.selenium.Browser;
+import org.omg.CORBA.Object;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -53,7 +56,7 @@ public class LoginPage extends Page {
 
 
     /*
-    wait for captcha load
+    wait for captcha image load
      */
     private void waitForCaptcha() {
         waitFor(By.tagName("img"));
@@ -63,6 +66,21 @@ public class LoginPage extends Page {
     public String fillForm() {
         TestLoginUser user = new TestLoginUser("test@163.com", "12345678", "1234");
 
+        /*
+         FIXME: 12/17/16
+         problem:
+            fill login form in normal order, login-info-component would print error msg
+            NORMAL ORDER:  name -> password -> captcha
+         solution:
+            in chrome & phantom, adjust filling order of login form to work around
+            however, firefox still cannot work around
+            WORK AROUND: captcha -> name -> password
+        */
+
+        captcha.clear();
+        captcha.sendKeys(user.captcha);
+        captcha.sendKeys(Keys.ESCAPE);
+
         email.clear();
         email.sendKeys(user.email);
         email.sendKeys(Keys.ESCAPE);
@@ -71,13 +89,8 @@ public class LoginPage extends Page {
         loginPassword.sendKeys(user.loginPassword);
         loginPassword.sendKeys(Keys.ESCAPE);
 
-        // FIXME: 12/17/16 why captcha tip was throw???
-        captcha.clear();
-        captcha.sendKeys(user.captcha);
-        captcha.sendKeys(Keys.ESCAPE);
-
-
         submitButton.click();
+
         return "TODO";
     }
 }

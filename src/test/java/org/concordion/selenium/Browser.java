@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Manages the browser session.
@@ -14,8 +13,8 @@ public class Browser {
     private WebDriver driver;
 
     public Browser() {
-        driver = new FirefoxDriver();
-//        driver = new ChromeDriver();
+//        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
 //        driver = new PhantomJSDriver();
          EventFiringWebDriver efwd = new EventFiringWebDriver(driver);
          efwd.register(new SeleniumEventLogger());
