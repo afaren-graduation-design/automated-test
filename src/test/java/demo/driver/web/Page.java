@@ -3,6 +3,7 @@ package demo.driver.web;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,11 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class Page {
     protected Browser browser;
-    protected WebDriver driver;
 
     public Page(Browser browser) {
-        this.driver = browser.getDriver();
         this.browser = browser;
+        PageFactory.initElements(browser.getDriver(), this);
     }
 
     public String getPageTitle() {
@@ -23,7 +23,7 @@ public class Page {
     }
 
     protected void waitFor(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(browser.getDriver(), 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }

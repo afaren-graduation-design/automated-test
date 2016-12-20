@@ -1,17 +1,11 @@
 package demo.driver.web;
 
 import org.concordion.selenium.Browser;
-import org.omg.CORBA.Object;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by afaren on 12/17/16.
@@ -50,7 +44,6 @@ public class LoginPage extends Page {
 
     public LoginPage(Browser browser) {
         super(browser);
-        PageFactory.initElements(driver, this);
         waitForCaptcha();
     }
 

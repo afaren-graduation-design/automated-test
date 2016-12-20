@@ -2,13 +2,15 @@ package demo.twa.rs;
 
 import demo.driver.web.HomePage;
 import demo.driver.web.LoginPage;
-import org.concordion.api.AfterExample;
+import org.concordion.api.AfterSpecification;
+import org.concordion.api.BeforeSpecification;
 import org.concordion.api.extension.Extension;
 import org.concordion.ext.ScreenshotExtension;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.concordion.selenium.Browser;
 import org.concordion.selenium.SeleniumScreenshotTaker;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
@@ -23,8 +25,12 @@ public class RecruitingSystem {
     @Extension
     private ScreenshotExtension extension = new ScreenshotExtension();
 
-    private void open() {
-        browser = new Browser();
+    @BeforeSpecification
+    private void setup() {
+        browser = new Browser(new ChromeDriver());
+//        browser = new Browser(new FirefoxDriver());
+//        browser = new Browser(new PhantomJSDriver());
+
         screenshotTaker = new SeleniumScreenshotTaker(browser);
         extension.setScreenshotTaker(screenshotTaker)
                 .setScreenshotOnAssertionFailure(true)
@@ -32,28 +38,21 @@ public class RecruitingSystem {
                 .setMaxWidth(600);
     }
 
-    public String openHomePage() {
-        if (browser == null) {
-            open();
+    @AfterSpecification
+    private void close(){
+        if (browser != null) {
+            browser.close();
+            browser = null;
         }
+    }
 
+    public String openHomePage() {
         homePage = new HomePage(browser, HOME_PAGE_URL);
         return homePage.getPageTitle();
     }
 
 
-
-    @AfterExample
-    public void close(){
-        if (browser != null) {
-            browser.close();
-            browser = null;
-        }
-
-    }
-
     public LoginPage login() {
-
         loginPage =  homePage.login();
         return loginPage;
     }
