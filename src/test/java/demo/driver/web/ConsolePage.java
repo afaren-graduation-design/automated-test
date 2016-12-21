@@ -9,6 +9,10 @@ import org.openqa.selenium.By;
 public class ConsolePage extends Page {
     public ConsolePage(Browser browser) {
         super(browser);
+    }
+
+    @Override
+    protected void waitUntilPageLoad() {
         waitFor(By.className("tip"));
     }
 }

@@ -9,13 +9,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by afaren on 12/18/16.
  */
-public class Page {
+public abstract  class Page {
     protected Browser browser;
 
     public Page(Browser browser) {
         this.browser = browser;
         PageFactory.initElements(browser.getDriver(), this);
+        waitUntilPageLoad();
     }
+
+    protected abstract void waitUntilPageLoad();
 
     public String getPageTitle() {
         return browser.getCurrentPageTitle();

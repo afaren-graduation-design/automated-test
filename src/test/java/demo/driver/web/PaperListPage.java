@@ -18,6 +18,10 @@ public class PaperListPage extends Page {
 
     public PaperListPage(Browser browser) {
         super(browser);
+    }
+
+    @Override
+    protected void waitUntilPageLoad() {
         waitFor(By.linkText("简单的试卷"));
     }
 

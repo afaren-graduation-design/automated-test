@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by afaren on 12/17/16.
  */
-public class HomePage extends Page{
+public class HomePage extends Page {
     @CacheLookup
     @FindBy(linkText = "登录")
     private WebElement login;
@@ -26,5 +26,9 @@ public class HomePage extends Page{
     public LoginPage login() {
         login.click();
         return new LoginPage(browser);
+    }
+
+    @Override
+    protected void waitUntilPageLoad() {
     }
 }

@@ -44,6 +44,10 @@ public class LoginPage extends Page {
 
     public LoginPage(Browser browser) {
         super(browser);
+    }
+
+    @Override
+    protected void waitUntilPageLoad() {
         waitForCaptcha();
     }
 
