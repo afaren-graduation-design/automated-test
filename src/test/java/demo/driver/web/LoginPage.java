@@ -56,7 +56,7 @@ public class LoginPage extends Page {
     }
 
 
-    public String fillForm() {
+    public PaperListPage fillForm() {
         TestLoginUser user = new TestLoginUser("test@163.com", "12345678", "1234");
 
         /*
@@ -84,7 +84,7 @@ public class LoginPage extends Page {
 
         submitButton.click();
 
-        return "TODO";
+        return new PaperListPage(browser);
     }
 }
 

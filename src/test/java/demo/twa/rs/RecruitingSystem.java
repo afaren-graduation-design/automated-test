@@ -1,7 +1,9 @@
 package demo.twa.rs;
 
+import demo.driver.web.ConsolePage;
 import demo.driver.web.HomePage;
 import demo.driver.web.LoginPage;
+import demo.driver.web.PaperListPage;
 import org.concordion.api.AfterSpecification;
 import org.concordion.api.BeforeSpecification;
 import org.concordion.api.extension.Extension;
@@ -15,10 +17,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
 
-    private String HOME_PAGE_URL = "http://localhost";
+    private String HOME_PAGE_URL = "http://localhost"; // local, not in docker container
 
     private Browser browser;
     private HomePage homePage;
+    private PaperListPage paperListPage;
+    private ConsolePage consolePage;
     private LoginPage loginPage;
     private SeleniumScreenshotTaker screenshotTaker;
 
@@ -57,10 +61,14 @@ public class RecruitingSystem {
         return loginPage;
     }
 
-    public String fillForm() {
-        return loginPage.fillForm();
+    public PaperListPage fillForm() {
+//        return loginPage.fillForm();
+        paperListPage = loginPage.fillForm();
+        return paperListPage;
     }
 
 
-
+    public ConsolePage clickEasyPaper() {
+        return paperListPage.clickEasyPaper();
+    }
 }
