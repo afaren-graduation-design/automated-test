@@ -23,12 +23,17 @@ public class HomePage extends Page {
         browser.requestPageOf(url);
     }
 
-    public LoginPage login() {
+    public LoginPage clickLoginBtn() {
         login.click();
         return new LoginPage(browser);
     }
 
     @Override
     protected void waitUntilPageLoad() {
+    }
+
+    public RegisterPage clickRegisterBtn() {
+        register.click();
+        return new RegisterPage(browser);
     }
 }

@@ -26,7 +26,7 @@ public class LoginPage extends Page {
 
 
     @CacheLookup
-    @FindBy(id = "login-btn")
+    @FindBy(id = "clickLoginBtn-btn")
     private WebElement submitButton;
 
 
@@ -66,10 +66,10 @@ public class LoginPage extends Page {
         /*
          FIXME: 12/17/16
          problem:
-            fill login form in normal order, login-info-component would print error msg
+            fill clickLoginBtn form in normal order, clickLoginBtn-info-component would print error msg
             NORMAL ORDER:  name -> password -> captcha
          solution:
-            in chrome & phantom, adjust filling order of login form to work around
+            in chrome & phantom, adjust filling order of clickLoginBtn form to work around
             however, firefox still cannot work around
             WORK AROUND: captcha -> name -> password
         */

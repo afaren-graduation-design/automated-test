@@ -1,9 +1,6 @@
 package demo.twa.rs;
 
-import demo.driver.web.ConsolePage;
-import demo.driver.web.HomePage;
-import demo.driver.web.LoginPage;
-import demo.driver.web.PaperListPage;
+import demo.driver.web.*;
 import org.concordion.api.AfterSpecification;
 import org.concordion.api.BeforeSpecification;
 import org.concordion.api.extension.Extension;
@@ -24,10 +21,13 @@ public class RecruitingSystem {
     private PaperListPage paperListPage;
     private ConsolePage consolePage;
     private LoginPage loginPage;
+    private RegisterPage registerPage;
+
     private SeleniumScreenshotTaker screenshotTaker;
 
     @Extension
     private ScreenshotExtension extension = new ScreenshotExtension();
+    private UserCenterPage userCenterPage;
 
     @BeforeSpecification
     private void setup() {
@@ -56,13 +56,12 @@ public class RecruitingSystem {
     }
 
 
-    public LoginPage login() {
-        loginPage =  homePage.login();
+    public LoginPage toLogin() {
+        loginPage =  homePage.clickLoginBtn();
         return loginPage;
     }
 
-    public PaperListPage fillForm() {
-//        return loginPage.fillForm();
+    public PaperListPage fillLoginForm() {
         paperListPage = loginPage.fillForm();
         return paperListPage;
     }
@@ -70,5 +69,21 @@ public class RecruitingSystem {
 
     public ConsolePage clickEasyPaper() {
         return paperListPage.clickEasyPaper();
+    }
+
+    public RegisterPage toRegister() {
+        registerPage = homePage.clickRegisterBtn();
+        return registerPage;
+    }
+
+    public UserCenterPage fillRegisterForm() {
+        userCenterPage = registerPage.fillForm();
+        return userCenterPage;
+    }
+
+    public PaperListPage fillUpInfo() {
+        paperListPage = userCenterPage.fillUpUserInfo();
+        return paperListPage;
+//        return userCenterPage.fillUpUserInfo();
     }
 }
