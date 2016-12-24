@@ -25,7 +25,7 @@ public class UserCenterPage extends Page {
     private WebElement schoolCity;
 
     @CacheLookup
-    @FindBy(name = "inputName")
+    @FindBy(id = "inputName")
     private WebElement inputName;
 
     @CacheLookup
@@ -34,7 +34,7 @@ public class UserCenterPage extends Page {
 
 
     @CacheLookup
-    @FindBy(name = "inputEmail")
+    @FindBy(id = "inputEmail")
     private WebElement inputEmail;
 
 
@@ -44,7 +44,7 @@ public class UserCenterPage extends Page {
 
 
     @CacheLookup
-    @FindBy(name = "inputMajor")
+    @FindBy(id = "inputMajor")
     private WebElement inputMajor;
 
 
@@ -94,9 +94,7 @@ public class UserCenterPage extends Page {
     }
 
     private void selectOption(WebElement element, String option) {
-        Select select = new Select(element);  // TODO: 12/22/16  how to select an option ?
-        select.deselectAll();
-
-        select.selectByVisibleText(option);
+        Select select = new Select(element);
+        select.selectByValue(option);
     }
 }
