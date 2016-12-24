@@ -20,11 +20,11 @@ refreshDB() {
 	./gradlew flywayclean && ./gradlew flywaymigrate && ./gradlew flywayinfo
 }
 
-
+# TODO: kill web-api if it is start already
 start_web_api() {
 	pwd
 	cd ~/twars/web-api/
-	export NODE_ENV=test; node app.js 
+	export NODE_ENV=test; node app.js & 
 }
 
 run_test() {
@@ -32,5 +32,36 @@ run_test() {
 	./gradlew test
 }
 
-#run_container && refreshDB && start_web_api && run_test 
-run_container && refreshDB &&  run_test 
+# 初始化环境
+initilize() {
+	run_container && refreshDB && start_web_api  
+}
+
+first() {
+	initilize && run_test
+}
+
+other() {
+	refreshDB && run_test
+}
+
+action=$1
+
+case $action in 
+	first)
+		echo "setup environment..."
+		first
+		;;
+	other)
+		echo "run test..."
+		other
+		;;
+	*)
+		echo "用法: (first|other)"
+		echo "- command: "
+		echo "first 初始化环境并运行测试"
+		echo "other 运行测试"
+		;;
+esac
+		
+
