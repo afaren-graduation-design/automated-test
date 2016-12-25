@@ -6,7 +6,7 @@
 #########################################################################
 #!/bin/bash
 
-# in order to run RecurtingSystem Concordion test, need to setup test environment as below
+# 初始化测试执行环境
 
 run_container(){
 	pwd
@@ -33,34 +33,34 @@ run_test() {
 }
 
 # 初始化环境
-initilize() {
+initialize() {
 	run_container && refreshDB && start_web_api  
 }
 
-first() {
-	initilize && run_test
+init() {
+	initialize && run_test
 }
 
-other() {
+run() {
 	refreshDB && run_test
 }
 
 action=$1
 
 case $action in 
-	first)
-		echo "setup environment..."
-		first
+	init)
+		echo "initialize execution environment..."
+		init
 		;;
-	other)
+	run)
 		echo "run test..."
-		other
+		run
 		;;
 	*)
-		echo "用法: (first|other)"
+		echo "用法: (init|run)"
 		echo "- command: "
-		echo "first 初始化环境并运行测试"
-		echo "other 运行测试"
+		echo "init 初始化环境并运行测试"
+		echo "run 运行测试"
 		;;
 esac
 		
