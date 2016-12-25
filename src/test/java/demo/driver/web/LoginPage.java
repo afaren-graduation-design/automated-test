@@ -1,5 +1,6 @@
 package demo.driver.web;
 
+import demo.data.TestUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -26,21 +27,10 @@ public class LoginPage extends Page {
 
 
     @CacheLookup
-    @FindBy(id = "clickLoginBtn-btn")
+    @FindBy(id = "login-btn")
     private WebElement submitButton;
 
 
-    private class TestLoginUser {
-        String email;
-        String loginPassword;
-        String captcha;
-
-        public TestLoginUser(String email, String loginPassword, String captcha) {
-            this.email = email;
-            this.loginPassword = loginPassword;
-            this.captcha = captcha;
-        }
-    }
 
     public LoginPage(Browser browser) {
         super(browser);
@@ -52,16 +42,12 @@ public class LoginPage extends Page {
     }
 
 
-    /*
-    wait for captcha image load
-     */
     private void waitForCaptcha() {
         waitFor(By.tagName("img"));
     }
 
 
     public PaperListPage fillForm() {
-        TestLoginUser user = new TestLoginUser("test@163.com", "12345678", "1234");
 
         /*
          FIXME: 12/17/16
@@ -75,15 +61,15 @@ public class LoginPage extends Page {
         */
 
         captcha.clear();
-        captcha.sendKeys(user.captcha);
+        captcha.sendKeys(TestUser.CAPTCHA);
         captcha.sendKeys(Keys.ESCAPE);
 
         email.clear();
-        email.sendKeys(user.email);
+        email.sendKeys(TestUser.EMAIL);
         email.sendKeys(Keys.ESCAPE);
 
         loginPassword.clear();
-        loginPassword.sendKeys(user.loginPassword);
+        loginPassword.sendKeys(TestUser.PASSWORD);
         loginPassword.sendKeys(Keys.ESCAPE);
 
         submitButton.click();

@@ -86,4 +86,8 @@ public class RecruitingSystem {
         return paperListPage;
 //        return userCenterPage.fillUpUserInfo();
     }
+
+    public String reOpenHomePage() {
+        return openHomePage();
+    }
 }

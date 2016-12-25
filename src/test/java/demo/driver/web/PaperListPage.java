@@ -12,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 public class PaperListPage extends Page {
 
     @CacheLookup
-    @FindBy(linkText = "简单的试卷")   // TODO: 12/20/16 使用 xpath 语法获取第一个 a 链接
+    @FindBy(linkText = "简单的试卷")
     private WebElement anchor;
 
 

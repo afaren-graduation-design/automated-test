@@ -1,5 +1,6 @@
 package demo.driver.web;
 
+import demo.data.TestUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -58,19 +59,19 @@ public class RegisterPage extends Page {
     public UserCenterPage fillForm() {
 
         mobilePhone.clear();
-        mobilePhone.sendKeys("18829292227");
+        mobilePhone.sendKeys(TestUser.PHONE);
         mobilePhone.sendKeys(Keys.ESCAPE);
 
         email.clear();
-        email.sendKeys("afaren@chen.com");
+        email.sendKeys(TestUser.EMAIL);
         email.sendKeys(Keys.ESCAPE);
 
         pwssword.clear();
-        pwssword.sendKeys("password");
+        pwssword.sendKeys(TestUser.PASSWORD);
         pwssword.sendKeys(Keys.ESCAPE);
 
         captcha.clear();
-        captcha.sendKeys("1234");
+        captcha.sendKeys(TestUser.CAPTCHA);
         captcha.sendKeys(Keys.ESCAPE);
 
         agreeCheck.click();
@@ -81,11 +82,6 @@ public class RegisterPage extends Page {
         return new UserCenterPage(browser);
     }
 
-    /*
-        because register must wait back-end a while to response,
-        however, concordion specification asserts before back-end response,
-        so it is needed to wait UserCenterPage to load then let concordion asserts.
-        */
     private void waitTillUserCenterPageLoad() {
         waitFor(By.id("inputSchool"));
     }
