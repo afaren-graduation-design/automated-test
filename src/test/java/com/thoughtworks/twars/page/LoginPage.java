@@ -1,6 +1,6 @@
-package demo.driver.web;
+package com.thoughtworks.twars.page;
 
-import demo.data.TestUser;
+import com.thoughtworks.twars.data.TestUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

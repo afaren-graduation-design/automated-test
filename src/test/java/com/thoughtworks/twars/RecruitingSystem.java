@@ -1,6 +1,6 @@
-package demo.twa.rs;
+package com.thoughtworks.twars;
 
-import demo.driver.web.*;
+import com.thoughtworks.twars.page.*;
 import org.concordion.api.AfterSpecification;
 import org.concordion.api.BeforeSpecification;
 import org.concordion.api.extension.Extension;
