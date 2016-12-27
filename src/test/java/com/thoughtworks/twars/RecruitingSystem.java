@@ -10,7 +10,6 @@ import org.concordion.selenium.Browser;
 import org.concordion.selenium.SeleniumScreenshotTaker;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
@@ -46,7 +45,7 @@ public class RecruitingSystem {
     }
 
     @AfterSpecification
-    private void close(){
+    private void close() {
         if (browser != null) {
             browser.close();
             browser = null;
@@ -60,7 +59,7 @@ public class RecruitingSystem {
 
 
     public LoginPage toLogin() {
-        loginPage =  homePage.clickLoginBtn();
+        loginPage = homePage.clickLoginBtn();
         return loginPage;
     }
 
@@ -71,7 +70,7 @@ public class RecruitingSystem {
 
 
     public ConsolePage clickEasyPaper() {
-         consolePage = paperListPage.clickEasyPaper();
+        consolePage = paperListPage.clickEasyPaper();
         return consolePage;
     }
 
@@ -101,8 +100,18 @@ public class RecruitingSystem {
 
 
     public LogicPage clickStartBtn() {
-        logicPage  = needKnowPage.clickStartBtn();
+        logicPage = needKnowPage.clickStartBtn();
         return logicPage;
     }
 
+    public ConsolePage answerLogicQuizzes() {
+        int numberOfPuzzles = 12;
+        for (int i = 0; i < numberOfPuzzles; i++) {
+            logicPage.clickNextQuiz();
+        }
+
+        logicPage.clickSubmit();
+        consolePage = logicPage.clickModalOkBtn();
+        return consolePage;
+    }
 }

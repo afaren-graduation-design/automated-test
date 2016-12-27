@@ -22,7 +22,7 @@ public class ConsolePage extends Page {
 
     @Override
     protected void waitUntilPageLoad() {
-        waitFor(By.className("tip"));
+        waitFor(By.className("dashboard-icon"));
     }
 
     public NeedKnowPage clickLogicQuizzes() {
