@@ -7,26 +7,25 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Created by afaren on 12/20/16.
+ * Created by afaren on 12/26/16.
  */
-public class ConsolePage extends Page {
+public class NeedKnowPage extends Page {
 
     @CacheLookup
-    @FindBy(linkText = "逻辑题")
-    private WebElement logic;
+    @FindBy(tagName = "button")
+    WebElement startBtn;
 
-
-    public ConsolePage(Browser browser) {
+    public NeedKnowPage(Browser browser) {
         super(browser);
     }
 
     @Override
     protected void waitUntilPageLoad() {
-        waitFor(By.className("tip"));
+        waitFor(By.className("start-button"));
     }
 
-    public NeedKnowPage clickLogicQuizzes() {
-        logic.click();
-        return new NeedKnowPage(browser);
+    public LogicPage clickStartBtn() {
+        startBtn.click();
+        return new LogicPage(browser);
     }
 }

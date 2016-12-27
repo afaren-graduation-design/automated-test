@@ -14,7 +14,8 @@ To validate whether register is OK or not, we can [request the home page again](
 After [filling the login form](- "#paperListPage=fillLoginForm()"), user will successfully login into Recruiting System and see paper list page titled 
 [试卷列表——思沃学院云考试系统](- "?=#paperListPage.getPageTitle()").
 After [Clicking 简单的试卷](- "#consolePage=clickEasyPaper()"), new page titled [控制台——思沃学院云考试系统](- "?=#consolePage.getPageTitle()") would be loaded.  
-Click 逻辑题 button, 答题需知 page will be loaded. After reading 答题需知, user can start exams by click 开始 button.   
+[Click 逻辑题 button](- "#needKonwPage=clickLogicQuizzes()"), [答题需知——思沃学院云考试系统 ](- "?=#needKonwPage.getPageTitle()")page will be loaded. After reading 答题需知, user can
+[start exams by click 开始 button](- "#logicPage=clickStartBtn()"). Then [逻辑题——思沃学院云考试系统](- "?=#logicPage.getPageTitle()") page will be loaded.  
 The first page shown is an example page with tips 此题为例题.   
 
 

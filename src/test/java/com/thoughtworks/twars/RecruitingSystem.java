@@ -10,6 +10,7 @@ import org.concordion.selenium.Browser;
 import org.concordion.selenium.SeleniumScreenshotTaker;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
@@ -28,6 +29,8 @@ public class RecruitingSystem {
     @Extension
     private ScreenshotExtension extension = new ScreenshotExtension();
     private UserCenterPage userCenterPage;
+    private NeedKnowPage needKnowPage;
+    private LogicPage logicPage;
 
     @BeforeSpecification
     private void setup() {
@@ -68,7 +71,8 @@ public class RecruitingSystem {
 
 
     public ConsolePage clickEasyPaper() {
-        return paperListPage.clickEasyPaper();
+         consolePage = paperListPage.clickEasyPaper();
+        return consolePage;
     }
 
     public RegisterPage toRegister() {
@@ -84,10 +88,21 @@ public class RecruitingSystem {
     public PaperListPage fillUpInfo() {
         paperListPage = userCenterPage.fillUpUserInfo();
         return paperListPage;
-//        return userCenterPage.fillUpUserInfo();
     }
 
     public String reOpenHomePage() {
         return openHomePage();
     }
+
+    public NeedKnowPage clickLogicQuizzes() {
+        needKnowPage = consolePage.clickLogicQuizzes();
+        return needKnowPage;
+    }
+
+
+    public LogicPage clickStartBtn() {
+        logicPage  = needKnowPage.clickStartBtn();
+        return logicPage;
+    }
+
 }
