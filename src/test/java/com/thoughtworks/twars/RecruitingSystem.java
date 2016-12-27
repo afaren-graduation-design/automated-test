@@ -29,7 +29,8 @@ public class RecruitingSystem {
     private ScreenshotExtension extension = new ScreenshotExtension();
     private UserCenterPage userCenterPage;
     private NeedKnowPage needKnowPage;
-    private LogicPage logicPage;
+    private LogicPuzzlePage logicPuzzlePage;
+    private HomeworkQuizPage homeworkQuizPage;
 
     @BeforeSpecification
     private void setup() {
@@ -93,25 +94,30 @@ public class RecruitingSystem {
         return openHomePage();
     }
 
-    public NeedKnowPage clickLogicQuizzes() {
-        needKnowPage = consolePage.clickLogicQuizzes();
+    public NeedKnowPage clickLogicPuzzles() {
+        needKnowPage = consolePage.clickLogicPuzzle();
         return needKnowPage;
     }
 
 
-    public LogicPage clickStartBtn() {
-        logicPage = needKnowPage.clickStartBtn();
-        return logicPage;
+    public LogicPuzzlePage clickStartBtn() {
+        logicPuzzlePage = needKnowPage.clickStartBtn();
+        return logicPuzzlePage;
     }
 
     public ConsolePage answerLogicQuizzes() {
         int numberOfPuzzles = 12;
         for (int i = 0; i < numberOfPuzzles; i++) {
-            logicPage.clickNextQuiz();
+            logicPuzzlePage.clickNextQuiz();
         }
 
-        logicPage.clickSubmit();
-        consolePage = logicPage.clickModalOkBtn();
+        logicPuzzlePage.clickSubmit();
+        consolePage = logicPuzzlePage.clickModalOkBtn();
         return consolePage;
+    }
+
+    public HomeworkQuizPage clickHomeworkQuizzes() {
+        homeworkQuizPage  = consolePage.clickHomeworkQuiz();
+        return homeworkQuizPage;
     }
 }

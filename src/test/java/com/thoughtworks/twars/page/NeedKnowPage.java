@@ -24,8 +24,8 @@ public class NeedKnowPage extends Page {
         waitFor(By.className("start-button"));
     }
 
-    public LogicPage clickStartBtn() {
+    public LogicPuzzlePage clickStartBtn() {
         startBtn.click();
-        return new LogicPage(browser);
+        return new LogicPuzzlePage(browser);
     }
 }

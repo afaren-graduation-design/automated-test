@@ -14,9 +14,10 @@ To validate whether register is OK or not, we can [request the home page again](
 After [filling the login form](- "#paperListPage=fillLoginForm()"), user will successfully login into Recruiting System and see paper list page titled 
 [试卷列表——思沃学院云考试系统](- "?=#paperListPage.getPageTitle()").
 After [Clicking 简单的试卷](- "#consolePage=clickEasyPaper()"), new page titled [控制台——思沃学院云考试系统](- "?=#consolePage.getPageTitle()") would be loaded.  
-[Click 逻辑题 button](- "#needKonwPage=clickLogicQuizzes()"), [答题需知——思沃学院云考试系统 ](- "?=#needKonwPage.getPageTitle()")page will be loaded. After reading 答题需知, user can
+[Click 逻辑题 button](- "#needKonwPage=clickLogicPuzzles()"), [答题需知——思沃学院云考试系统 ](- "?=#needKonwPage.getPageTitle()")page will be loaded. After reading 答题需知, user can
 [start exams by click 开始 button](- "#logicPage=clickStartBtn()"). Then [逻辑题——思沃学院云考试系统](- "?=#logicPage.getPageTitle()") page will be loaded.  
-After [answer all logic quizzes](- "#consolePage=answerLogicQuizzes()"), user will be cued back to  [控制台——思沃学院云考试系统](- "?=#consolePage.getPageTitle()") page. By clicking 编程题 this time, user start 编程题 exam.   
+After [answer all logic quizzes](- "#consolePage=answerLogicQuizzes()"), user will be cued back to  [控制台——思沃学院云考试系统](- "?=#consolePage.getPageTitle()") page. 
+By [clicking 编程题](- "#homeworkQuizPage=clickHomeworkQuizzes()") this time, user starts [编程题——思沃学院云考试系统](- "?=#homeworkQuizPage.getPageTitle()") exam.   
 
 
 

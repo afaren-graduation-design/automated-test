@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by afaren on 12/27/16.
  */
-public class LogicPage extends Page {
+public class LogicPuzzlePage extends Page {
 
     @CacheLookup
     @FindBy(xpath = "descendant::button/span[text()='下一题']")
@@ -23,7 +23,7 @@ public class LogicPage extends Page {
     @FindBy(xpath = "descendant::button/span[text()='确认提交']")
     WebElement modalConfirm;
 
-    public LogicPage(Browser browser) {
+    public LogicPuzzlePage(Browser browser) {
         super(browser);
     }
 

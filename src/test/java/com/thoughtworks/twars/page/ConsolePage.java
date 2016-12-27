@@ -13,7 +13,11 @@ public class ConsolePage extends Page {
 
     @CacheLookup
     @FindBy(linkText = "逻辑题")
-    private WebElement logic;
+    private WebElement logicPuzzle;
+
+    @CacheLookup
+    @FindBy(linkText = "编程题")
+    private WebElement homeworkQuiz;
 
 
     public ConsolePage(Browser browser) {
@@ -25,8 +29,14 @@ public class ConsolePage extends Page {
         waitFor(By.className("dashboard-icon"));
     }
 
-    public NeedKnowPage clickLogicQuizzes() {
-        logic.click();
+    public NeedKnowPage clickLogicPuzzle() {
+        logicPuzzle.click();
         return new NeedKnowPage(browser);
+    }
+
+    public HomeworkQuizPage clickHomeworkQuiz() {
+        homeworkQuiz.click();
+        return new HomeworkQuizPage(browser);
+
     }
 }
