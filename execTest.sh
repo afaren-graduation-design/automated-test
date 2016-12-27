@@ -1,33 +1,48 @@
-#########################################################################
-# File Name: refreshDB.sh
-# Author: Afar
-# mail: 550047450@qq.com
-# Created Time: Thursday, December 22, 2016 AM11:24:40 CST
-#########################################################################
-#!/bin/bash
+#!/bin/sh
 
-# 初始化测试执行环境
 
-run_container(){
-	pwd
-	cd ~/twars/assembly/
-	docker-compose kill && docker-compose up -d paper-api mongo
+# 初始化测试执行环境，并运行测试
+
+# 彩色包装函数
+color_echo () {
+	echo "\033[1;32;40m $@ \033[0m"
 }
 
-refreshDB() {
+run_container() {
+	color_echo "start containers............."
+	pwd
+	cd ~/twars/assembly/
+	docker-compose kill && docker-compose up -d paper-api mysql mongo
+}
+
+refreshMongo() {
+	color_echo "refresh Mongo............"
+	pwd
+	cd ~/twars/web-api
+	npm run refreshMongo
+}
+
+refreshMysql() {
+	color_echo "refresh Mysql............"
 	pwd
 	cd ~/twars/paper-api/
 	./gradlew flywayclean && ./gradlew flywaymigrate && ./gradlew flywayinfo
 }
 
-# TODO: kill web-api if it is start already
+refreshDB() {
+	refreshMongo && refreshMysql
+}
+
 start_web_api() {
+	color_echo "start web-api............."
 	pwd
 	cd ~/twars/web-api/
-	export NODE_ENV=test; node app.js & 
+	#kill $(lsof  -t -i:3000) 
+	(npm run startService&) | kill $(lsof -t -i:3000) && npm run startService &
 }
 
 run_test() {
+	color_echo "execute test.............."
 	cd ~/workspace/working-directory/concordion-demo
 	./gradlew test
 }
@@ -37,30 +52,34 @@ initialize() {
 	run_container && refreshDB && start_web_api  
 }
 
+# 第一次运行测试
 init() {
 	initialize && run_test
 }
 
+# 后续运行
 run() {
 	refreshDB && run_test
 }
+
+
 
 action=$1
 
 case $action in 
 	init)
-		echo "initialize execution environment..."
+		color_echo "-----------initialize execution environment-----------"
 		init
 		;;
 	run)
-		echo "run test..."
+		color_echo "----------run test----------"
 		run
 		;;
 	*)
-		echo "用法: (init|run)"
-		echo "- command: "
-		echo "init 初始化环境并运行测试"
-		echo "run 运行测试"
+		color_echo "用法: (init|run)"
+		color_echo "- command: "
+		color_echo "init 初始化环境并运行测试"
+		color_echo "run 运行测试"
 		;;
 esac
 		
