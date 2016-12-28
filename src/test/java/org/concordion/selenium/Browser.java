@@ -1,5 +1,6 @@
 package org.concordion.selenium;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -11,6 +12,7 @@ public class Browser {
 
     public Browser(WebDriver driver) {
         this.driver = driver;
+        this.driver.manage().window().setSize(new Dimension(1024, 768));
         setEventLogger();
     }
 
