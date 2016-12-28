@@ -12,4 +12,5 @@ public class TestUser {
     public static final String MAJOR = "计算机科学与技术";
     public static final String DEGREE = "本科";
     public static final String ENTRANCE_YEAR = "2013";
+    public static final String GIT_REPO = "https://github.com/Afaren/for-recruiting-system-homework-quiz-test";
 }

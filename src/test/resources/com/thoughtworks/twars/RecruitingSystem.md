@@ -18,7 +18,8 @@ After [Clicking 简单的试卷](- "#consolePage=clickEasyPaper()"), new page ti
 [start exams by click 开始 button](- "#logicPage=clickStartBtn()"). Then [逻辑题——思沃学院云考试系统](- "?=#logicPage.getPageTitle()") page will be loaded.  
 After [answer all logic quizzes](- "#consolePage=answerLogicQuizzes()"), user will be cued back to  [控制台——思沃学院云考试系统](- "?=#consolePage.getPageTitle()") page. 
 By [clicking 编程题](- "#homeworkQuizPage=clickHomeworkQuizzes()") this time, user starts [编程题——思沃学院云考试系统](- "?=#homeworkQuizPage.getPageTitle()") exam.   
-
+After [answering 第 1 题](- "#firstQuizExecutionResult=answerFirstHomeworkQuiz()"), 執行結果 will be [readme.md 找到.](- "?=#firstQuizExecutionResult") if the answer was right.  
+ 
 
 
 

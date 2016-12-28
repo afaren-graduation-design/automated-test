@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
 
-    private String HOME_PAGE_URL = "http://localhost"; // local, not in docker container
+    private String HOME_PAGE_URL = "http://localhost"; // local nginx, not in docker container
 
     private Browser browser;
     private HomePage homePage;
@@ -119,5 +119,9 @@ public class RecruitingSystem {
     public HomeworkQuizPage clickHomeworkQuizzes() {
         homeworkQuizPage  = consolePage.clickHomeworkQuiz();
         return homeworkQuizPage;
+    }
+
+    public String answerFirstHomeworkQuiz() {
+        return homeworkQuizPage.answerFirstQuiz();
     }
 }
