@@ -1,12 +1,15 @@
 # thoughtworks-academy-recruiting-system-automated-test
 
 ## Environment
-1. JDK
-2. gradle
-3. nginx
-4. Node
-5. Docker
-
+###  JDK
+###  gradle
+###  nginx
+###  Docker
+###  WebDriver
+下载并将 WebDriver 放置在系统可执行路径 PATH 下  
+1. [ChromeDriver](http://chromedriver.storage.googleapis.com/index.html)  
+2. [FireFoxDriver](https://github.com/mozilla/geckodriver/releases)  
+3. [PhantomJSDriver](http://phantomjs.org/download.html)  
 
 ## Initialize 
 1. 启动 **nginx**
@@ -37,4 +40,3 @@
 
 参考： [Concordion Office site](http://concordion.org/) 
 
-# thoughtworks-academy-recruiting-system-automated-test
