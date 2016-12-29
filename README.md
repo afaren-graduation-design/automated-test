@@ -1,4 +1,4 @@
-# Recruiting System Concordion Test
+# thoughtworks-academy-recruiting-system-automated-test
 
 ## Environment
 1. JDK
@@ -37,3 +37,4 @@
 
 参考： [Concordion Office site](http://concordion.org/) 
 
+# thoughtworks-academy-recruiting-system-automated-test
