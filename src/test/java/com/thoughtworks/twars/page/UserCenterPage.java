@@ -67,9 +67,10 @@ public class UserCenterPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.tagName("button"));
+    protected By condition() {
+        return By.tagName("button");
     }
+
 
     public PaperListPage fillUpUserInfo() {
 

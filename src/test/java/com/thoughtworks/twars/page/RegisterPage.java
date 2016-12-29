@@ -48,13 +48,10 @@ public class RegisterPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitForCaptcha();
+    protected By condition() {
+        return By.tagName("img");
     }
 
-    private void waitForCaptcha() {
-        waitFor(By.tagName("img"));
-    }
 
     public UserCenterPage fillForm() {
 

@@ -21,8 +21,8 @@ public class PaperListPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.linkText("简单的试卷"));
+    protected By condition() {
+        return By.linkText("简单的试卷");
     }
 
     public ConsolePage clickEasyPaper() {

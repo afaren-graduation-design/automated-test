@@ -39,9 +39,10 @@ public class HomeworkQuizPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.linkText("题目说明"));
+    protected By condition() {
+        return By.linkText("题目说明");
     }
+
 
     public String answerFirstQuiz() {
         submitHomeworkTab.click();

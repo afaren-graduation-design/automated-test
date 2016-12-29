@@ -25,8 +25,8 @@ public class ConsolePage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.className("dashboard-icon"));
+    protected By condition() {
+        return By.className("dashboard-icon");
     }
 
     public NeedKnowPage clickLogicPuzzle() {

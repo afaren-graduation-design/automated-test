@@ -37,13 +37,8 @@ public class LoginPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitForCaptcha();
-    }
-
-
-    private void waitForCaptcha() {
-        waitFor(By.tagName("img"));
+    protected By condition() {
+        return By.tagName("img");
     }
 
 

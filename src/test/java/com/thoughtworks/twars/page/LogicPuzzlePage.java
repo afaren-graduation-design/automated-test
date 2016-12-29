@@ -28,9 +28,10 @@ public class LogicPuzzlePage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.className("description"));
+    protected By condition() {
+        return By.className("description");
     }
+
 
     public void clickNextQuiz() {
         sleep();

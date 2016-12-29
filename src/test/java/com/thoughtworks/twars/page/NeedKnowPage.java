@@ -20,8 +20,8 @@ public class NeedKnowPage extends Page {
     }
 
     @Override
-    protected void waitUntilPageLoad() {
-        waitFor(By.className("start-button"));
+    protected By condition() {
+        return By.className("start-button");
     }
 
     public LogicPuzzlePage clickStartBtn() {
