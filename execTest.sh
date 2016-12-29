@@ -43,8 +43,8 @@ start_web_api() {
 
 run_test() {
 	color_echo "execute test.............."
-	cd ~/workspace/working-directory/concordion-demo
-	./gradlew test
+	cd ~/twars/automated-test
+	./gradlew clean test
 }
 
 # 初始化环境
