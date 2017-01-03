@@ -40,7 +40,7 @@ start_web_api() {
 	pwd
 	cd $twars/web-api/ || exit 1
 	#kill $(lsof  -t -i:3000) 
-	(npm run startService&) | kill $(lsof -t -i:3000) && npm run startService &
+	(npm run startService &) || kill $(lsof -t -i:3000) && npm run startService &
 }
 
 run_test() {
