@@ -82,6 +82,26 @@ public class SeleniumEventLogger implements WebDriverEventListener {
     }
 
     @Override
+    public void beforeAlertAccept(WebDriver driver) {
+        
+    }
+
+    @Override
+    public void afterAlertAccept(WebDriver driver) {
+
+    }
+
+    @Override
+    public void afterAlertDismiss(WebDriver driver) {
+
+    }
+
+    @Override
+    public void beforeAlertDismiss(WebDriver driver) {
+
+    }
+
+    @Override
     public void beforeNavigateTo(String arg0, WebDriver arg1) {
     }
 
