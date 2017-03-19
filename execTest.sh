@@ -28,7 +28,7 @@ refreshMysql() {
 	color_echo "----------------------------------Refresh Mysql-----------------------------------"
 	pwd
 	cd $twars/paper-api/ || exit 1
-	./gradlew flywayclean && ./gradlew flywaymigrate && ./gradlew flywayinfo
+    docker exec -i assembly_mysql_1 mysql -uroot -pthoughtworks BronzeSword < ./BronzeSword.sql
 }
 
 refreshDB() {
