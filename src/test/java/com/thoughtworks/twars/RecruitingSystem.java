@@ -35,8 +35,6 @@ public class RecruitingSystem {
     @BeforeSpecification
     private void setup() {
         browser = new Browser(new ChromeDriver());
-//        browser = new Browser(new FirefoxDriver());
-//        browser = new Browser(new PhantomJSDriver());
 
         screenshotTaker = new SeleniumScreenshotTaker(browser);
         extension.setScreenshotTaker(screenshotTaker)
