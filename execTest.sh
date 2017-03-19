@@ -14,18 +14,18 @@ run_container() {
 	color_echo "start containers............."
 	pwd
 	cd $twars/assembly/ || exit 1
-	docker-compose kill && docker-compose up -d paper-api mysql mongo
+	docker-compose kill && docker-compose up -d 
 }
 
 refreshMongo() {
-	color_echo "refresh Mongo............"
+	color_echo "refresh Mongo................"
 	pwd
 	cd $twars/web-api || exit 1
 	npm run refreshMongo
 }
 
 refreshMysql() {
-	color_echo "refresh Mysql............"
+	color_echo "refresh Mysql................"
 	pwd
 	cd $twars/paper-api/ || exit 1
 	./gradlew flywayclean && ./gradlew flywaymigrate && ./gradlew flywayinfo
@@ -35,23 +35,16 @@ refreshDB() {
 	refreshMongo && refreshMysql
 }
 
-start_web_api() {
-	color_echo "start web-api............."
-	pwd
-	cd $twars/web-api/ || exit 1
-	#kill $(lsof  -t -i:3000) 
-	(npm run start &) || kill $(lsof -t -i:3000) && npm run start &
-}
 
 run_test() {
-	color_echo "execute test.............."
+	color_echo "execute test.................."
 	cd $twars/automated-test || exit 1
 	./gradlew clean test
 }
 
 # 初始化环境
 initialize() {
-	run_container && refreshDB && start_web_api  
+	run_container && refreshDB
 }
 
 # 第一次运行测试
