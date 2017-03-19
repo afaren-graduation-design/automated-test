@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 @RunWith(ConcordionRunner.class)
 public class RecruitingSystem {
 
-    private String HOME_PAGE_URL = "http://afaren.graduation.design"; 
+    private String HOME_PAGE_URL = "http://afaren.graduation.design:8888"; 
 
     private Browser browser;
     private HomePage homePage;
