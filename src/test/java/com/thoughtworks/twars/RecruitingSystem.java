@@ -94,14 +94,16 @@ public class RecruitingSystem {
         return openHomePage();
     }
 
-    public NeedKnowPage clickLogicPuzzles() {
-        needKnowPage = consolePage.clickLogicPuzzle();
-        return needKnowPage;
-    }
+
+    // FIXME: 3/19/17  因为 【答题需知】没有了，所以这里先注释掉，应该是谁不小心把代码弄坏了
+//    public NeedKnowPage clickLogicPuzzles() {
+//        needKnowPage = consolePage.clickLogicPuzzle();
+//        return needKnowPage;
+//    }
 
 
     public LogicPuzzlePage clickStartBtn() {
-        logicPuzzlePage = needKnowPage.clickStartBtn();
+        logicPuzzlePage = consolePage.clickLogicPuzzle();;
         return logicPuzzlePage;
     }
 

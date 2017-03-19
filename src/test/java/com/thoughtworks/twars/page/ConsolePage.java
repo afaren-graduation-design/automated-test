@@ -29,9 +29,9 @@ public class ConsolePage extends Page {
         return By.className("dashboard-icon");
     }
 
-    public NeedKnowPage clickLogicPuzzle() {
+    public LogicPuzzlePage clickLogicPuzzle() {
         logicPuzzle.click();
-        return new NeedKnowPage(browser);
+        return new LogicPuzzlePage(browser);
     }
 
     public HomeworkQuizPage clickHomeworkQuiz() {
