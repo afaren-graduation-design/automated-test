@@ -6,7 +6,7 @@
 ###  nginx
 ###  Docker
 ###  WebDriver
-下载并将 Chrome Web Driver 放置在系统可执行路径 PATH 下  
+将 `webdrivers/chromedriver` 放置在系统可执行路径 PATH 下  
 1. [ChromeDriver](http://chromedriver.storage.googleapis.com/index.html)  
 执行 ` chromedrive -v `，验证 driver 版本
 ```
