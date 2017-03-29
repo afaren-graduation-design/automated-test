@@ -3,7 +3,7 @@
 
 # 初始化测试执行环境，并运行测试
 
-twars="/home/afaren/twars"
+twars="../"
 
 # 彩色包装函数
 color_echo () {
