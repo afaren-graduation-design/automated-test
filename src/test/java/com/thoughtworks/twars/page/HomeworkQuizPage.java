@@ -1,6 +1,6 @@
 package com.thoughtworks.twars.page;
 
-import com.thoughtworks.twars.data.TestUser;
+import com.thoughtworks.twars.data.MockUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -46,7 +46,7 @@ public class HomeworkQuizPage extends Page {
 
     public String answerFirstQuiz() {
         submitHomeworkTab.click();
-        gitRepo.sendKeys(TestUser.GIT_REPO);
+        gitRepo.sendKeys(MockUser.GIT_REPO);
         submitBtn.click();
 
         executeResultTab.click();

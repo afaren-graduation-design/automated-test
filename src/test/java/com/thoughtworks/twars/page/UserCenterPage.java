@@ -1,6 +1,6 @@
 package com.thoughtworks.twars.page;
 
-import com.thoughtworks.twars.data.TestUser;
+import com.thoughtworks.twars.data.MockUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -74,21 +74,21 @@ public class UserCenterPage extends Page {
 
     public PaperListPage fillUpUserInfo() {
 
-        inputSchool.sendKeys(TestUser.SCHOOL);
+        inputSchool.sendKeys(MockUser.SCHOOL);
 
-        selectOption(schoolProvince,TestUser.SCHOOL_PROVINCE);
+        selectOption(schoolProvince, MockUser.SCHOOL_PROVINCE);
 
-        selectOption(schoolCity,TestUser.SCHOOL_CITY );
+        selectOption(schoolCity, MockUser.SCHOOL_CITY );
 
-        inputName.sendKeys(TestUser.NAME);
+        inputName.sendKeys(MockUser.NAME);
 
         gender.click();
 
-        inputMajor.sendKeys(TestUser.MAJOR);
+        inputMajor.sendKeys(MockUser.MAJOR);
 
-        selectOption(degree,TestUser.DEGREE );
+        selectOption(degree, MockUser.DEGREE );
 
-        selectOption(entranceYear,TestUser.ENTRANCE_YEAR);
+        selectOption(entranceYear, MockUser.ENTRANCE_YEAR);
 
         submitBtn.click();
 

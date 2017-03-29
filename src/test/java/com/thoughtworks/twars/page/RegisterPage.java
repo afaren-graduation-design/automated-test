@@ -1,6 +1,6 @@
 package com.thoughtworks.twars.page;
 
-import com.thoughtworks.twars.data.TestUser;
+import com.thoughtworks.twars.data.MockUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -56,19 +56,19 @@ public class RegisterPage extends Page {
     public UserCenterPage fillForm() {
 
         mobilePhone.clear();
-        mobilePhone.sendKeys(TestUser.PHONE);
+        mobilePhone.sendKeys(MockUser.PHONE);
         mobilePhone.sendKeys(Keys.ESCAPE);
 
         email.clear();
-        email.sendKeys(TestUser.EMAIL);
+        email.sendKeys(MockUser.EMAIL);
         email.sendKeys(Keys.ESCAPE);
 
         pwssword.clear();
-        pwssword.sendKeys(TestUser.PASSWORD);
+        pwssword.sendKeys(MockUser.PASSWORD);
         pwssword.sendKeys(Keys.ESCAPE);
 
         captcha.clear();
-        captcha.sendKeys(TestUser.CAPTCHA);
+        captcha.sendKeys(MockUser.CAPTCHA);
         captcha.sendKeys(Keys.ESCAPE);
 
         agreeCheck.click();

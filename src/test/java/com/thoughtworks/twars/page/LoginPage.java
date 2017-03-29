@@ -1,6 +1,6 @@
 package com.thoughtworks.twars.page;
 
-import com.thoughtworks.twars.data.TestUser;
+import com.thoughtworks.twars.data.MockUser;
 import org.concordion.selenium.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -56,15 +56,15 @@ public class LoginPage extends Page {
         */
 
         captcha.clear();
-        captcha.sendKeys(TestUser.CAPTCHA);
+        captcha.sendKeys(MockUser.CAPTCHA);
         captcha.sendKeys(Keys.ESCAPE);
 
         email.clear();
-        email.sendKeys(TestUser.EMAIL);
+        email.sendKeys(MockUser.EMAIL);
         email.sendKeys(Keys.ESCAPE);
 
         loginPassword.clear();
-        loginPassword.sendKeys(TestUser.PASSWORD);
+        loginPassword.sendKeys(MockUser.PASSWORD);
         loginPassword.sendKeys(Keys.ESCAPE);
 
         submitButton.click();
