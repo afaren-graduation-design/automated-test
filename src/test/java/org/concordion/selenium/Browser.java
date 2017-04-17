@@ -12,7 +12,11 @@ public class Browser {
 
     public Browser(WebDriver driver) {
         this.driver = driver;
-        this.driver.manage().window().setSize(new Dimension(1024, 768));
+        if (driver.getClass().getName() == "org.openqa.selenium.chrome.ChromeDriver") {
+            this.driver.manage().window().maximize();
+        } else {
+            this.driver.manage().window().setSize(new Dimension(1024, 768));
+        }
         setEventLogger();
     }
 
