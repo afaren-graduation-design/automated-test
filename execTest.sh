@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
+# 导出 webdrivers，使其可执行
+export PATH=$(pwd)/webdrivers:$PATH
 
 # 初始化测试执行环境，并运行测试
-
 twars="../"
 
 # 彩色包装函数
