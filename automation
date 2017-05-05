@@ -11,24 +11,27 @@ command_exists() {
   command -v "$@" > /dev/null 2>&1
 }
 
-command_exists cowsay && alias cowsay="cowsay -f gnu" || alias cowsay=color_echo
+
+output() {
+	cowsay $@ | lolcat
+}
 
 run_container() {
-	cowsay "Start Containers"
+	output "Start Containers"
   pwd
 	cd $TWARS/assembly/ || exit 1
 	docker-compose kill && docker-compose up -d 
 }
 
 refreshMongo() {
-	cowsay "Refresh Mongo"
+	output "Refresh Mongo"
 	pwd
 	cd $TWARS/web-api || exit 1
 	npm run refreshMongo
 }
 
 refreshMysql() {
-	cowsay "Refresh MySQL"
+	output "Refresh MySQL"
 	pwd
 	cd $TWARS/paper-api/ || exit 1
   docker exec -i assembly_mysql_1 mysql -uroot -pthoughtworks BronzeSword < ./BronzeSword.sql
@@ -40,7 +43,7 @@ refreshDB() {
 
 
 run_test() {
-	cowsay "Execute Test"
+	output "Execute Test"
 	cd $TWARS/automated-test || exit 1
 	./gradlew clean test
 }
@@ -63,11 +66,11 @@ action=$1
 
 case $action in 
 	init)
-		cowsay "Initialize Execution Environment"
+		output "Initialize Execution Environment"
 		init
 		;;
 	run)
-		cowsay "Run Test"
+		output "Run Test"
 		run
 		;;
 	*)
