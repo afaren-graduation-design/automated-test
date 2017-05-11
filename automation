@@ -1,11 +1,14 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash 
 
 TWARS="../"
 export PATH=$(pwd)/webdrivers:$PATH
 
-color_echo () {
-	echo "\033[1;32;40m $@ \033[0m"
-}
+
+read -r -d '\n' USAGE <<'ENF'
+    用法: (init|run) 
+    1. init 初始化环境并运行测试
+    2. run 运行测试
+ENF
 
 command_exists() {
   command -v "$@" > /dev/null 2>&1
@@ -74,10 +77,7 @@ case $action in
 		run
 		;;
 	*)
-		color_echo "用法: (init|run)"
-		color_echo "- command: "
-		color_echo "init 初始化环境并运行测试"
-		color_echo "run 运行测试"
+		output $USAGE
 		;;
 esac
 		
