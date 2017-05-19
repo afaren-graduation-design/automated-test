@@ -1,7 +1,7 @@
 # Recuriting-System
 
 
-## [Example](- "register + login + logic puzzle + homework quiz")
+## [Example](- "register + user center + login + logic puzzle + homework quiz")
 When [request home page](- "#title=openHomePage()"), then page titled [主页——思沃学院云考试系统](- "?=#title") will be loaded.
 [Click 注册 button](- "#registerPage=toRegister()"), login page titled [注册/登录——思沃学院云考试系统](- "?=#registerPage.getPageTitle()") with a form will be loaded.
 After [filling up the register form](- "#userCenterPage=fillRegisterForm()"), user will getting into User Center page 
