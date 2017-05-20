@@ -17,20 +17,21 @@ public class RecruitingSystem {
     private String HOME_PAGE_URL = "http://afaren.graduation.design:8888"; 
 
     private Browser browser;
+
+
     private HomePage homePage;
     private PaperListPage paperListPage;
     private ConsolePage consolePage;
     private LoginPage loginPage;
     private RegisterPage registerPage;
+    private LogicPuzzlePage logicPuzzlePage;
+    private HomeworkQuizPage homeworkQuizPage;
+    private UserCenterPage userCenterPage;
 
     private SeleniumScreenshotTaker screenshotTaker;
 
     @Extension
     private ScreenshotExtension extension = new ScreenshotExtension();
-    private UserCenterPage userCenterPage;
-    private NeedKnowPage needKnowPage;
-    private LogicPuzzlePage logicPuzzlePage;
-    private HomeworkQuizPage homeworkQuizPage;
 
     @BeforeSpecification
     private void setup() {
@@ -91,13 +92,6 @@ public class RecruitingSystem {
     public String reOpenHomePage() {
         return openHomePage();
     }
-
-
-    // FIXME: 3/19/17  因为 【答题需知】没有了，所以这里先注释掉，应该是谁不小心把代码弄坏了
-//    public NeedKnowPage clickLogicPuzzles() {
-//        needKnowPage = consolePage.clickLogicPuzzle();
-//        return needKnowPage;
-//    }
 
 
     public LogicPuzzlePage clickStartBtn() {
